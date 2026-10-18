@@ -255,4 +255,4 @@ MIT — suitable for academic submission. Retain attribution in coursework.
 
 ## 👤 Author
 
-**Sait Ahmed** — Final Year Project, 2026
+**Zeeshan Anjum** — Final Year Project, 2026
