@@ -1,0 +1,171 @@
+# AgroSmart AI — centralized configuration
+# Paths are relative to the project root (agrosmart-ai/).
+
+paths:
+  data_raw: data/raw
+  data_processed: data/processed
+  artifacts_models: artifacts/models
+  artifacts_reports: artifacts/reports
+
+models:
+  crop:
+    # balanced_only: train_crop.py loads baseline CSV only (production model).
+    # merged_smote: train_crop.py exits — run train_crop_experiment.py for Exp 2.
+    training_mode: balanced_only
+    artifact_path: artifacts/models/crop_model.pkl
+    metadata_path: artifacts/models/crop_metadata.json
+    experiment_metadata_path: artifacts/models/crop_metadata_experiment.json
+    features:
+      - N
+      - P
+      - K
+      - temperature
+      - humidity
+      - ph
+      - rainfall
+      - soil_type
+    classes:
+      - rice
+      - maize
+      - chickpea
+      - kidneybeans
+      - pigeonpeas
+      - mothbeans
+      - mungbean
+      - blackgram
+      - lentil
+      - pomegranate
+      - banana
+      - mango
+      - grapes
+      - watermelon
+      - muskmelon
+      - apple
+      - orange
+      - papaya
+      - coconut
+      - cotton
+      - jute
+      - coffee
+  yield:
+    artifact_path: artifacts/models/yield_model.pkl
+    metadata_path: artifacts/models/yield_metadata.json
+    features:
+      - Area
+      - Item
+      - average_rain_fall_mm_per_year
+      - pesticides_tonnes
+      - avg_temp
+
+training:
+  random_state: 42
+  test_size: 0.2
+  cv_folds: 5
+  rf_n_estimators: 100
+  xgb_n_estimators: 100
+  search_n_iter_rf: 6
+  search_n_iter_xgb: 6
+  svm_max_samples: 12000  # subsample for SVC speed on large merged crop data
+  parallel_n_jobs: 2  # RandomizedSearchCV / cross_val_score (-1 = all cores)
+
+validation:
+  N: [0, 140]
+  P: [5, 145]
+  K: [5, 205]
+  ph: [3.5, 9.0]
+  temperature: [8, 43]
+  humidity: [14, 100]
+  rainfall: [20, 300]
+  pesticides: [0, 1000000]
+
+country_defaults:
+  Afghanistan: {rainfall: 327, temperature: 12.5, pesticides: 177}
+  Albania: {rainfall: 1485, temperature: 11.4, pesticides: 1200}
+  Algeria: {rainfall: 89, temperature: 22.5, pesticides: 3500}
+  Angola: {rainfall: 1010, temperature: 25.8, pesticides: 310}
+  Argentina: {rainfall: 591, temperature: 17.5, pesticides: 95000}
+  Armenia: {rainfall: 562, temperature: 7.0, pesticides: 280}
+  Australia: {rainfall: 534, temperature: 21.8, pesticides: 49000}
+  Austria: {rainfall: 1110, temperature: 7.5, pesticides: 4200}
+  Azerbaijan: {rainfall: 447, temperature: 11.8, pesticides: 1850}
+  Bangladesh: {rainfall: 2101, temperature: 26.0, pesticides: 32000}
+  Belarus: {rainfall: 618, temperature: 5.8, pesticides: 12500}
+  Belgium: {rainfall: 847, temperature: 9.8, pesticides: 14000}
+  Bolivia: {rainfall: 1146, temperature: 23.5, pesticides: 1800}
+  Brazil: {rainfall: 1761, temperature: 25.0, pesticides: 380000}
+  Bulgaria: {rainfall: 608, temperature: 10.5, pesticides: 7200}
+  Cambodia: {rainfall: 1904, temperature: 27.5, pesticides: 2100}
+  Cameroon: {rainfall: 1604, temperature: 24.5, pesticides: 310}
+  Canada: {rainfall: 537, temperature: 1.5, pesticides: 55000}
+  Chile: {rainfall: 1522, temperature: 10.5, pesticides: 11000}
+  China: {rainfall: 645, temperature: 14.0, pesticides: 1800000}
+  Colombia: {rainfall: 3240, temperature: 24.0, pesticides: 25000}
+  Croatia: {rainfall: 862, temperature: 10.2, pesticides: 2200}
+  Cuba: {rainfall: 1335, temperature: 25.5, pesticides: 3400}
+  Czech Republic: {rainfall: 677, temperature: 7.5, pesticides: 10200}
+  Denmark: {rainfall: 703, temperature: 7.7, pesticides: 8000}
+  Ecuador: {rainfall: 2087, temperature: 21.5, pesticides: 8300}
+  Egypt: {rainfall: 18, temperature: 22.0, pesticides: 27000}
+  El Salvador: {rainfall: 1784, temperature: 23.0, pesticides: 1100}
+  Ethiopia: {rainfall: 848, temperature: 17.8, pesticides: 420}
+  Finland: {rainfall: 536, temperature: 1.7, pesticides: 1700}
+  France: {rainfall: 867, temperature: 11.0, pesticides: 75000}
+  Germany: {rainfall: 700, temperature: 8.5, pesticides: 45000}
+  Ghana: {rainfall: 1187, temperature: 27.4, pesticides: 1500}
+  Greece: {rainfall: 652, temperature: 16.5, pesticides: 22000}
+  Guatemala: {rainfall: 1996, temperature: 20.5, pesticides: 4800}
+  Hungary: {rainfall: 589, temperature: 9.8, pesticides: 17000}
+  India: {rainfall: 1083, temperature: 25.0, pesticides: 120000}
+  Indonesia: {rainfall: 2702, temperature: 26.0, pesticides: 82000}
+  Iran: {rainfall: 228, temperature: 17.0, pesticides: 36000}
+  Iraq: {rainfall: 154, temperature: 22.5, pesticides: 2000}
+  Ireland: {rainfall: 1118, temperature: 9.8, pesticides: 5200}
+  Italy: {rainfall: 832, temperature: 13.5, pesticides: 67000}
+  Japan: {rainfall: 1668, temperature: 14.0, pesticides: 60000}
+  Jordan: {rainfall: 111, temperature: 17.5, pesticides: 840}
+  Kazakhstan: {rainfall: 250, temperature: 5.5, pesticides: 22000}
+  Kenya: {rainfall: 630, temperature: 19.5, pesticides: 2800}
+  Malaysia: {rainfall: 2875, temperature: 27.0, pesticides: 16000}
+  Mexico: {rainfall: 752, temperature: 21.0, pesticides: 64000}
+  Morocco: {rainfall: 346, temperature: 17.5, pesticides: 11000}
+  Mozambique: {rainfall: 1032, temperature: 24.0, pesticides: 280}
+  Myanmar: {rainfall: 2091, temperature: 27.0, pesticides: 8100}
+  Nepal: {rainfall: 1500, temperature: 17.5, pesticides: 1300}
+  Netherlands: {rainfall: 778, temperature: 9.8, pesticides: 15600}
+  New Zealand: {rainfall: 1732, temperature: 11.5, pesticides: 8800}
+  Nigeria: {rainfall: 1150, temperature: 26.5, pesticides: 3800}
+  Norway: {rainfall: 1414, temperature: 1.5, pesticides: 1900}
+  Pakistan: {rainfall: 494, temperature: 22.0, pesticides: 45000}
+  Peru: {rainfall: 1738, temperature: 18.5, pesticides: 14000}
+  Philippines: {rainfall: 2348, temperature: 26.6, pesticides: 28000}
+  Poland: {rainfall: 600, temperature: 7.5, pesticides: 26000}
+  Portugal: {rainfall: 854, temperature: 16.0, pesticides: 13500}
+  Romania: {rainfall: 637, temperature: 9.5, pesticides: 10500}
+  Russia: {rainfall: 460, temperature: 0.5, pesticides: 42000}
+  Saudi Arabia: {rainfall: 59, temperature: 25.0, pesticides: 5600}
+  Senegal: {rainfall: 686, temperature: 28.5, pesticides: 320}
+  Serbia: {rainfall: 680, temperature: 11.0, pesticides: 4100}
+  South Africa: {rainfall: 495, temperature: 17.5, pesticides: 18000}
+  South Korea: {rainfall: 1274, temperature: 11.5, pesticides: 22000}
+  Spain: {rainfall: 636, temperature: 14.0, pesticides: 71000}
+  Sri Lanka: {rainfall: 1712, temperature: 28.0, pesticides: 2200}
+  Sudan: {rainfall: 416, temperature: 27.0, pesticides: 5200}
+  Sweden: {rainfall: 539, temperature: 2.1, pesticides: 2600}
+  Switzerland: {rainfall: 1537, temperature: 5.6, pesticides: 2800}
+  Syria: {rainfall: 252, temperature: 17.0, pesticides: 7400}
+  Tanzania: {rainfall: 1071, temperature: 21.5, pesticides: 400}
+  Thailand: {rainfall: 1622, temperature: 27.5, pesticides: 85000}
+  Turkey: {rainfall: 593, temperature: 11.5, pesticides: 75000}
+  Ukraine: {rainfall: 565, temperature: 7.5, pesticides: 60000}
+  United Kingdom: {rainfall: 1220, temperature: 8.5, pesticides: 30000}
+  United States of America: {rainfall: 715, temperature: 12.0, pesticides: 400000}
+  Uruguay: {rainfall: 1282, temperature: 17.5, pesticides: 9400}
+  Uzbekistan: {rainfall: 206, temperature: 13.5, pesticides: 28000}
+  Venezuela: {rainfall: 1875, temperature: 25.0, pesticides: 6500}
+  Viet Nam: {rainfall: 1821, temperature: 24.5, pesticides: 72000}
+  Zambia: {rainfall: 1020, temperature: 21.0, pesticides: 350}
+  Zimbabwe: {rainfall: 657, temperature: 19.0, pesticides: 1600}
+
+logging:
+  level: INFO
+  log_file: artifacts/logs/app.log

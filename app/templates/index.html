@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AgroSmart AI — Crop & Yield Intelligence</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <span aria-hidden="true">🌾</span>
+        <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="" />
+        <span>AgroSmart AI</span>
+      </div>
+      <nav class="nav-links">
+        <button type="button" id="openModelInfo">Model Info</button>
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </header>
+
+    <main class="shell">
+      <div class="grid">
+        <section class="card">
+          <h2>Field inputs</h2>
+          <form id="predictionForm">
+            <div class="form-grid">
+              <div>
+                <label for="countrySelect">Country / region</label>
+                <select id="countrySelect" name="country" required>
+                  <option value="">Select country</option>
+                  {% for c in country_options %}
+                  <option value="{{ c }}">{{ c }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div>
+                <label for="soilSelect">Soil type</label>
+                <select id="soilSelect" name="soil_type" required>
+                  {% for s in soil_options %}
+                  <option value="{{ s }}" {% if s=='loam' %}selected{% endif %}>{{ s|title }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div><label for="nInput">Nitrogen (N)</label><input id="nInput" name="N" type="number" step="0.1" required /></div>
+              <div><label for="pInput">Phosphorus (P)</label><input id="pInput" name="P" type="number" step="0.1" required /></div>
+              <div><label for="kInput">Potassium (K)</label><input id="kInput" name="K" type="number" step="0.1" required /></div>
+              <div><label for="phInput">pH</label><input id="phInput" name="ph" type="number" step="0.01" required /></div>
+              <div><label for="tempInput">Temperature (°C)</label><input id="tempInput" name="temperature" type="number" step="0.1" required /></div>
+              <div><label for="humInput">Humidity (%)</label><input id="humInput" name="humidity" type="number" step="0.1" required /></div>
+              <div><label for="rainInput">Rainfall (mm)</label><input id="rainInput" name="rainfall" type="number" step="0.1" required /></div>
+              <div><label for="pestInput">Pesticides (tonnes)</label><input id="pestInput" name="pesticides" type="number" step="0.1" required /></div>
+              <div><label for="landInput">Land area (ha, optional)</label><input id="landInput" name="land_area" type="number" step="0.1" /></div>
+            </div>
+            <button class="primary-btn" type="submit" id="predictBtn">Predict crop &amp; yield</button>
+          </form>
+        </section>
+
+        <section class="card" id="result" aria-live="polite">
+          <h2>Insights</h2>
+          <p id="resultPlaceholder">Submit the form to see your recommendation.</p>
+          <div id="resultContent" hidden>
+            <div id="resultBody">
+              <div class="metric" id="cropName">—</div>
+              <div class="badge-row">
+                <span class="badge" id="confidenceBadge">Confidence —</span>
+                <span class="badge alt" id="modelBadge">Model —</span>
+              </div>
+              <p><strong>Expected yield:</strong> <span id="yieldValue">—</span> tons/ha</p>
+              <p><strong>Typical range:</strong> <span id="confidenceValue">—</span> tons/ha</p>
+              <details class="explain">
+                <summary>Why this crop?</summary>
+                <p id="explanationText"></p>
+              </details>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div class="toast" id="toast" role="status"></div>
+
+    <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <h2 id="modalTitle">Model comparison</h2>
+        <p>Metrics persisted from the last training run.</p>
+        <div id="modalTables"></div>
+        <button type="button" class="primary-btn" id="closeModal" style="margin-top: 1rem">Close</button>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>

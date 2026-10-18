@@ -1,0 +1,229 @@
+{
+  "experiment": "balanced_baseline",
+  "training_mode": "balanced_only",
+  "data_source": "Crop_recommendation.csv_only",
+  "best_model": "RandomForest",
+  "best_f1_macro": 0.9931775541531639,
+  "holdout_metrics_best_pipeline": {
+    "accuracy": 1.0,
+    "precision_macro": 1.0,
+    "recall_macro": 1.0,
+    "f1_macro": 1.0,
+    "f1_weighted": 1.0,
+    "roc_auc_macro": 1.0
+  },
+  "training_date": "2026-05-14",
+  "models": {
+    "RandomForest": {
+      "accuracy": 0.9931818181818182,
+      "precision_macro": 0.9935064935064936,
+      "recall_macro": 0.993181818181818,
+      "f1_macro": 0.9931775541531639,
+      "f1_weighted": 0.9931775541531639,
+      "roc_auc_macro": 1.0,
+      "cv_f1_mean": 0.996005391446791,
+      "cv_f1_std": 0.002921148752157659,
+      "best_params": {
+        "max_depth": 30,
+        "min_samples_split": 9,
+        "n_estimators": 100
+      }
+    },
+    "XGBoost": {
+      "accuracy": 0.9886363636363636,
+      "precision_macro": 0.9893742621015349,
+      "recall_macro": 0.9886363636363636,
+      "f1_macro": 0.9884930494686592,
+      "f1_weighted": 0.9884930494686593,
+      "roc_auc_macro": 0.9999837662337662,
+      "cv_f1_mean": 0.9926086376966143,
+      "cv_f1_std": 0.0013935720713028142,
+      "best_params": {
+        "learning_rate": 0.18955396053267753,
+        "max_depth": 4,
+        "n_estimators": 143,
+        "subsample": 0.987741352194453
+      }
+    },
+    "SVM": {
+      "accuracy": 0.9840909090909091,
+      "precision_macro": 0.9856099105110961,
+      "recall_macro": 0.9840909090909092,
+      "f1_macro": 0.9840381050638686,
+      "f1_weighted": 0.9840381050638686,
+      "roc_auc_macro": 1.0,
+      "cv_f1_mean": 0.9788025126741349,
+      "cv_f1_std": 0.0106237591310153,
+      "best_params": {}
+    },
+    "KNN": {
+      "accuracy": 0.9818181818181818,
+      "precision_macro": 0.9828807556080285,
+      "recall_macro": 0.9818181818181817,
+      "f1_macro": 0.9817369194776127,
+      "f1_weighted": 0.9817369194776128,
+      "roc_auc_macro": 0.9987418831168831,
+      "cv_f1_mean": 0.9660839469593359,
+      "cv_f1_std": 0.010753090889607925,
+      "best_params": {}
+    },
+    "GradientBoosting": {
+      "accuracy": 0.9886363636363636,
+      "precision_macro": 0.989742141916055,
+      "recall_macro": 0.9886363636363634,
+      "f1_macro": 0.9887226097483732,
+      "f1_weighted": 0.9887226097483733,
+      "roc_auc_macro": 0.9999729437229438,
+      "cv_f1_mean": 0.9874329889247088,
+      "cv_f1_std": 0.0030771957780956864,
+      "best_params": {}
+    }
+  },
+  "classification_report": {
+    "apple": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "banana": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "blackgram": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "chickpea": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "coconut": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "coffee": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "cotton": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "grapes": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "jute": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "kidneybeans": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "lentil": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "maize": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "mango": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "mothbeans": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "mungbean": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "muskmelon": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "orange": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "papaya": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "pigeonpeas": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "pomegranate": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "rice": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "watermelon": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 440.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 440.0
+    }
+  }
+}

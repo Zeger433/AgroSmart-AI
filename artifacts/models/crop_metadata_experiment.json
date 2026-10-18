@@ -1,0 +1,309 @@
+{
+  "experiment": "merged_smote_class_weight",
+  "training_date": "2026-05-14",
+  "smote_k_neighbors": 3,
+  "raw_merged_holdout": {
+    "RandomForest": {
+      "accuracy": 0.24932432432432433,
+      "precision_macro": 0.8043544839598378,
+      "recall_macro": 0.80771256714472,
+      "f1_macro": 0.8058868448172057,
+      "f1_weighted": 0.2491204887940807,
+      "roc_auc_macro": 0.89891803403519,
+      "best_params": {
+        "max_depth": 40,
+        "min_samples_split": 3,
+        "n_estimators": 167
+      },
+      "cv_f1_mean": 0.8086057231417236,
+      "cv_f1_std": 0.0011359327882443308
+    },
+    "XGBoost": {
+      "accuracy": 0.24121621621621622,
+      "precision_macro": 0.8024349454794971,
+      "recall_macro": 0.8019326167301272,
+      "f1_macro": 0.80193900413899,
+      "f1_weighted": 0.2412582092099493,
+      "roc_auc_macro": 0.8973455820844367,
+      "best_params": {
+        "learning_rate": 0.13177194231349623,
+        "max_depth": 9,
+        "n_estimators": 162,
+        "subsample": 0.7289927255872208
+      },
+      "cv_f1_mean": 0.8057369813095516,
+      "cv_f1_std": 0.003854842945757902
+    },
+    "SVM": {
+      "accuracy": 0.24166666666666667,
+      "precision_macro": 0.7754813127642799,
+      "recall_macro": 0.8077990483071618,
+      "f1_macro": 0.7865550882952419,
+      "f1_weighted": 0.23337558636587524,
+      "roc_auc_macro": 0.8985273384858206,
+      "best_params": {},
+      "cv_f1_mean": 0.7777977225128139,
+      "cv_f1_std": 0.007382630206669649
+    },
+    "KNN": {
+      "accuracy": 0.24797297297297297,
+      "precision_macro": 0.7944597043092863,
+      "recall_macro": 0.8017718467906445,
+      "f1_macro": 0.7971190362587427,
+      "f1_weighted": 0.2471611905206962,
+      "roc_auc_macro": 0.8942097887026024,
+      "best_params": {},
+      "cv_f1_mean": 0.7892894500481525,
+      "cv_f1_std": 0.007205736128583726
+    },
+    "GradientBoosting": {
+      "accuracy": 0.2518018018018018,
+      "precision_macro": 0.8018664593149262,
+      "recall_macro": 0.8065289250451293,
+      "f1_macro": 0.803772097886752,
+      "f1_weighted": 0.25124579944541314,
+      "roc_auc_macro": 0.9008638255247681,
+      "best_params": {},
+      "cv_f1_mean": 0.7642436708623865,
+      "cv_f1_std": 0.044811572404623745
+    }
+  },
+  "smote_balanced_holdout": {
+    "RandomForest": {
+      "accuracy": 0.24527027027027026,
+      "precision_macro": 0.8019767513292352,
+      "recall_macro": 0.8067057374104218,
+      "f1_macro": 0.804028230456901,
+      "f1_weighted": 0.24497572673040888,
+      "roc_auc_macro": 0.8992882870574466,
+      "best_params": {
+        "max_depth": 30,
+        "min_samples_split": 9,
+        "n_estimators": 210
+      },
+      "cv_f1_mean": 0.8096174108325294,
+      "cv_f1_std": 0.0012672986966739206
+    },
+    "XGBoost": {
+      "accuracy": 0.2445945945945946,
+      "precision_macro": 0.7982683198005691,
+      "recall_macro": 0.8046655361739716,
+      "f1_macro": 0.8010562421274092,
+      "f1_weighted": 0.24422550488032357,
+      "roc_auc_macro": 0.8992392310298893,
+      "best_params": {
+        "learning_rate": 0.10807231163419742,
+        "max_depth": 7,
+        "n_estimators": 179,
+        "subsample": 0.7414313771973627
+      },
+      "cv_f1_mean": 0.8041898781286726,
+      "cv_f1_std": 0.005599846881235465
+    },
+    "SVM": {
+      "accuracy": 0.24797297297297297,
+      "precision_macro": 0.7926920754849067,
+      "recall_macro": 0.8093117349888674,
+      "f1_macro": 0.7991057857897332,
+      "f1_weighted": 0.2466170775697956,
+      "roc_auc_macro": 0.8994708022292477,
+      "best_params": {},
+      "cv_f1_mean": 0.7917444193366069,
+      "cv_f1_std": 0.006040256491224265
+    },
+    "KNN": {
+      "accuracy": 0.24436936936936937,
+      "precision_macro": 0.7857393974308556,
+      "recall_macro": 0.8027401886185864,
+      "f1_macro": 0.7929375209309869,
+      "f1_weighted": 0.2433598535378291,
+      "roc_auc_macro": 0.8916274209798044,
+      "best_params": {},
+      "cv_f1_mean": 0.7894740427866148,
+      "cv_f1_std": 0.003810836805139229
+    },
+    "GradientBoosting": {
+      "accuracy": 0.24887387387387389,
+      "precision_macro": 0.7997151770505275,
+      "recall_macro": 0.8038914204237991,
+      "f1_macro": 0.801364294015809,
+      "f1_weighted": 0.24871704398656866,
+      "roc_auc_macro": 0.8998373649618435,
+      "best_params": {},
+      "cv_f1_mean": 0.8007234441171001,
+      "cv_f1_std": 0.005494002482893448
+    }
+  },
+  "classification_report": {
+    "apple": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "banana": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "blackgram": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "chickpea": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "coconut": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "coffee": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "cotton": {
+      "precision": 0.9523809523809523,
+      "recall": 1.0,
+      "f1-score": 0.975609756097561,
+      "support": 20.0
+    },
+    "grapes": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "jute": {
+      "precision": 0.8260869565217391,
+      "recall": 0.95,
+      "f1-score": 0.8837209302325582,
+      "support": 20.0
+    },
+    "kidneybeans": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "lentil": {
+      "precision": 1.0,
+      "recall": 0.95,
+      "f1-score": 0.9743589743589743,
+      "support": 20.0
+    },
+    "maize": {
+      "precision": 0.20871143375680581,
+      "recall": 0.16666666666666666,
+      "f1-score": 0.185334407735697,
+      "support": 690.0
+    },
+    "mango": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "mothbeans": {
+      "precision": 0.9523809523809523,
+      "recall": 1.0,
+      "f1-score": 0.975609756097561,
+      "support": 20.0
+    },
+    "mungbean": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "muskmelon": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "orange": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "papaya": {
+      "precision": 1.0,
+      "recall": 0.95,
+      "f1-score": 0.9743589743589743,
+      "support": 20.0
+    },
+    "pigeonpeas": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "pomegranate": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "potato": {
+      "precision": 0.15739484396200815,
+      "recall": 0.17261904761904762,
+      "f1-score": 0.1646557842441448,
+      "support": 672.0
+    },
+    "rice": {
+      "precision": 0.18566775244299674,
+      "recall": 0.16913946587537093,
+      "f1-score": 0.17701863354037267,
+      "support": 674.0
+    },
+    "sugarcane": {
+      "precision": 0.17447495961227788,
+      "recall": 0.1643835616438356,
+      "f1-score": 0.16927899686520376,
+      "support": 657.0
+    },
+    "tomato": {
+      "precision": 0.15724137931034482,
+      "recall": 0.17040358744394618,
+      "f1-score": 0.16355810616929697,
+      "support": 669.0
+    },
+    "watermelon": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "wheat": {
+      "precision": 0.17825537294563842,
+      "recall": 0.2079646017699115,
+      "f1-score": 0.19196732471068753,
+      "support": 678.0
+    },
+    "accuracy": 0.24887387387387389,
+    "macro avg": {
+      "precision": 0.7997151770505275,
+      "recall": 0.8038914204237991,
+      "f1-score": 0.801364294015809,
+      "support": 4440.0
+    },
+    "weighted avg": {
+      "precision": 0.25004931101079914,
+      "recall": 0.24887387387387389,
+      "f1-score": 0.24871704398656866,
+      "support": 4440.0
+    }
+  },
+  "classification_report_from_smote_model": "GradientBoosting"
+}
